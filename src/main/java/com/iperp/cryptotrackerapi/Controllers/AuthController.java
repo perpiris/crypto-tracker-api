@@ -1,6 +1,6 @@
 package com.iperp.cryptotrackerapi.Controllers;
 
-import com.iperp.cryptotrackerapi.Dtos.LoginDto;
+import com.iperp.cryptotrackerapi.Dtos.UserDto;
 import com.iperp.cryptotrackerapi.Dtos.RegisterDto;
 import com.iperp.cryptotrackerapi.Models.AppUser;
 import com.iperp.cryptotrackerapi.Services.AuthenticationService;
@@ -22,7 +22,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public LoginDto loginUser(@RequestBody RegisterDto body) {
+    public UserDto loginUser(@RequestBody RegisterDto body) {
         return authenticationService.loginUser(body.getUsername(), body.getPassword());
     }
 }

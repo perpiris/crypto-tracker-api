@@ -32,6 +32,7 @@ public class Application {
                 roleRepository.save(adminRole);
 
                 Set<AppRole> roles = new HashSet<>();
+                roles.add(userRole);
                 roles.add(adminRole);
 
                 AppUser adminUser = new AppUser();
