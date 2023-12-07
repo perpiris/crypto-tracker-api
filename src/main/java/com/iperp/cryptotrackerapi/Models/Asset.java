@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @Entity(name = "assets")
 public class Asset {
     @Id
+    @Column(name = "asset_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private double quantity;

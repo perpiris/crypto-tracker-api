@@ -17,6 +17,7 @@ import java.util.List;
 @Entity(name = "coins")
 public class Coin {
     @Id
+    @Column(name = "coin_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
