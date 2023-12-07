@@ -5,12 +5,10 @@ import com.iperp.cryptotrackerapi.Dtos.RegisterDto;
 import com.iperp.cryptotrackerapi.Models.AppUser;
 import com.iperp.cryptotrackerapi.Services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/auth")
 public class AuthController {
     @Autowired
@@ -18,11 +16,11 @@ public class AuthController {
 
     @PostMapping("/register")
     public AppUser registerUser(@RequestBody RegisterDto body) {
-        return authenticationService.registerUser(body.getUsername(), body.getPassword());
+        return authenticationService.registerUser(body.getUserName(), body.getPassword());
     }
 
     @PostMapping("/login")
     public UserDto loginUser(@RequestBody RegisterDto body) {
-        return authenticationService.loginUser(body.getUsername(), body.getPassword());
+        return authenticationService.loginUser(body.getUserName(), body.getPassword());
     }
 }

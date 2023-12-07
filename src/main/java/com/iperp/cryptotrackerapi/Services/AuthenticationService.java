@@ -35,7 +35,7 @@ public class AuthenticationService {
     private TokenService tokenService;
 
     public AppUser registerUser(String username, String password) {
-        if (userRepository.findByUsername(username).isPresent()) {
+        if (userRepository.findByUsername(username).isEmpty()) {
             String encodedPassword = passwordEncoder.encode(password);
             AppRole userRole = roleRepository.findByAuthority("USER").get();
 
